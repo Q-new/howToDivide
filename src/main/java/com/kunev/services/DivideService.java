@@ -64,6 +64,7 @@ public class DivideService {
             repayments.add(new Repayment(debtor, creditor, debtor.getDuty()));
             creditor.setCredit(creditor.getCredit().subtract(debtor.getDuty()));
         } else if (creditor.getCredit().compareTo(debtor.getDuty()) == 0){
+            repayments.add(new Repayment(debtor, creditor, debtor.getDuty()));
             creditor.setCredit(BigDecimal.valueOf(0));
         } else {
             repayments.add(new Repayment(debtor, creditor, creditor.getCredit()));
