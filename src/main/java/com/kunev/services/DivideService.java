@@ -8,6 +8,7 @@ import com.kunev.models.Repayment;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,6 +48,8 @@ public class DivideService {
         creditors = getCreditors();
 
         fillRepayments();
+
+        Collections.sort(repayments);
 
         return repayments;
     }

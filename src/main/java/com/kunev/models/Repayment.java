@@ -3,7 +3,7 @@ package com.kunev.models;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Repayment {
+public class Repayment implements Comparable {
     private Debtor debtor;
     private Creditor creditor;
     private BigDecimal credit;
@@ -17,5 +17,14 @@ public class Repayment {
     @Override
     public String toString() {
         return String.format("%s должен вернуть %s сумму в размере %s р.", debtor, creditor, credit.setScale(2));
+    }
+
+    public Debtor getDebtor() {
+        return debtor;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.debtor.getName().compareTo(((Repayment) o).getDebtor().getName());
     }
 }
